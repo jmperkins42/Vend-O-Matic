@@ -3,4 +3,4 @@ url: http://localhost:8080/inventory/:id
 method: GET
 pathVariables:
   id: "1"
-order: 4489706262624673
+order: 10000

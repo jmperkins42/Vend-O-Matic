@@ -1,5 +1,5 @@
 $kind: http-request
 name: return coins
 url: http://localhost:8080/inventory/1
-method: GET
-order: 4477755255504493
+method: DELETE
+order: 3840020355374728
