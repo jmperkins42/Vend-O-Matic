@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/inventory/:id
+method: GET
+pathVariables:
+  - key: id
+    value: "2"
+    $type: ""
+order: 4492236791189294

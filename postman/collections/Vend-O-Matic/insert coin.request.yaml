@@ -1,5 +1,5 @@
 $kind: http-request
-url: localhost:8080/
+url: http://localhost:8080/
 method: PUT
 body:
   type: json

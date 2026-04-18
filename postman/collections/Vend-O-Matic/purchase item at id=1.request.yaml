@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:8080/inventory/:id
+method: PUT
+pathVariables:
+  - key: id
+    value: "1"
+    $type: ""
+body:
+  type: json
+  content: ""
+order: 4500676208153188
