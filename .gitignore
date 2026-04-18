@@ -3,3 +3,7 @@
 
 # Virtual Environment
 venv/
+
+#  Python Bytecode
+__pycache__/
+*.pyc
