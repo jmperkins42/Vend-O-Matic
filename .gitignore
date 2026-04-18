@@ -1,2 +1,5 @@
 # Postman
 .postman/
+
+# Virtual Environment
+venv/

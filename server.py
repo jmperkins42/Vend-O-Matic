@@ -1,9 +1,23 @@
-import http.server
-import json
+from flask import Flask, jsonify, request
+app = Flask(__name__)
 
 # global variables to keep up with vending machine state
 coins = 0
 inventory = [5,5,5]
+
+# endpoint to insert a coin
+@app.route('/', methods=['PUT'])
+def insert_coin():
+    global coins
+    body = request.get_json()
+    if not body or body.get('coin') != 1:
+        return '', 400
+    coins += body['coin']
+    response = app.make_response('', 204)
+    response.headers['X-Coins'] = str(coins)
+    return response
+
+
 
 # HTTP request handler for the vending machine server that implements the required API endpoints
 class Handler(http.server.BaseHTTPRequestHandler):      
