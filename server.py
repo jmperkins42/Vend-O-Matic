@@ -9,7 +9,7 @@ def insert_coin():
     # gets the req body as JSON
     body = request.get_json()
     # edge case: req body is missing or has invalid value
-    if not vending_machine.insert_coin(body['coin']):
+    if not body or not vending_machine.insert_coin(body.get('coin')):
         return '', 400
     # send sucessful response
     response = app.make_response(('', 204))
