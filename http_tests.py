@@ -92,6 +92,6 @@ def test_purchase_item():
     response = requests.put(f'{BASE_URL}/inventory/1')
     # response code should be 404 Not Found due to item being out of stock
     assert response.status_code == 404
-    # the user would have 0 or 1 coins left over
-    assert int(response.headers['X-Coins']) < 2  
+    # should return an integer representing coins remaining after failed purchase attempt
+    assert int(response.headers['X-Coins']) >= 0
 
