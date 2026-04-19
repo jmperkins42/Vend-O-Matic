@@ -34,6 +34,24 @@ A simple vending machine API built with Python and Flask.
 
 The server will start on http://localhost:8080
 
+## Testing
+
+Tests are written using pytest and requests. You will need two terminals open:
+
+**Terminal 1 — start the server:**
+
+   python server.py
+
+**Terminal 2 — run the tests:**
+
+   pytest tests.py -v
+
+The `-v` flag shows each test name and its pass/fail status individually.
+
+To add new tests, add a new function to `http_tests.py` prefixed with `test_`. Tests run in the order they appear in the file — order matters since the server is stateful.
+
+Alternatively, endpoints can be tested manually using [Postman](https://www.postman.com/). Import the collection and use the Collection Runner to execute all requests in order.
+
 ## Stopping the Server
 Press CTRL+C to stop the server, then run `deactivate` to exit the virtual environment.
 

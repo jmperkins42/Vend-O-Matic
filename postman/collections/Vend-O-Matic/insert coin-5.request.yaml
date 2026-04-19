@@ -1,8 +1,0 @@
-$kind: http-request
-name: insert coin
-url: http://localhost:8080/
-method: PUT
-body:
-  type: json
-  content: '{"coin":1}'
-order: 2100526053141807

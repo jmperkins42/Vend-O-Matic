@@ -1,5 +1,6 @@
 # Postman
 .postman/
+postman/
 
 # Virtual Environment
 venv/
@@ -7,3 +8,4 @@ venv/
 #  Python Bytecode
 __pycache__/
 *.pyc
+.pytest_cache/
