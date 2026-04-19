@@ -42,8 +42,7 @@ def get_item_quantity(id):
 
 @app.route('/inventory/<int:id>', methods=['PUT'])
 def purchase_item(id):
-    num_vended = 0
-    result = vending_machine.purchase_item(id)
+    result, dispensed_coins = vending_machine.purchase_item(id)
     # edge case: if the id is out of bounds, return a 400 Bad Request response
     if result == 'OUT_OF_BOUNDS':
         return '', 400
@@ -60,14 +59,11 @@ def purchase_item(id):
         response.headers['X-Coins'] = str(vending_machine.get_coins())
         return response
     # if the purchase is successful, return a 200 OK response 
-    response = app.make_response(('', 200))
+    response = app.make_response((jsonify({"quantity": 1}), 200))
     # respond with coins remaining after purchase
-    response.headers['X-Coins'] = str(vending_machine.get_coins())
+    response.headers['X-Coins'] = str(dispensed_coins)
     # respond with current inventory of purchased item after purchase
     response.headers['X-Inventory-Remaining'] = str(vending_machine.get_item_quantity(id))
-    num_vended += 1
-    response.body = {"quantity": num_vended}
-    vending_machine.return_coins()  # return coins after purchase
     return response
     
 # run the Flask app on port 8080    

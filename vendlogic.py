@@ -35,15 +35,16 @@ class VendingMachine:
     def purchase_item(self, id):
         # edge case: id is out of bounds
         if id < 0 or id >= len(self.inventory):
-            return 'OUT_OF_BOUNDS'
+            return 'OUT_OF_BOUNDS', None
         # edge case: item is out of stock
         if self.inventory[id] <= 0:
-            return 'OUT_OF_STOCK'
+            return 'OUT_OF_STOCK', None
         # edge case: user does not have enough coins
         if self.coins < 2:
-            return 'INSUFFICIENT_COINS'
+            return 'INSUFFICIENT_COINS', None
         # process the purchase
         self.coins -= 2  # cost of the item is 2 coins
+        dispensed_coins = self.return_coins()  # return any remaining coins to the user
         self.inventory[id] -= 1  # reduce inventory by 1
         # return 'SUCCESS' to indicate a successful purchase
-        return 'SUCCESS'
+        return 'SUCCESS', dispensed_coins
