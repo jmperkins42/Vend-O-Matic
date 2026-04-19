@@ -51,6 +51,7 @@ def get_item_quantity(id):
 def purchase_item(id):
     # reference to global variables
     global coins
+    num_vended = 0
     # edge case: if the id is out of bounds, return a 400 Bad Request response
     if id < 0 or id >= len(inventory):
         return '', 400
@@ -69,11 +70,13 @@ def purchase_item(id):
     # if the purchase is successful, return a 200 OK response 
     response.headers['X-Coins'] = str(coins-2)
     # respond with current inventory of purchased item after purchase
-    response.headers['X-Inventory'] = str(inventory[id]-1)
+    response.headers['X-Inventory-Remaining'] = str(inventory[id]-1)
     # update coins to reflect purchase and coins returned to user
     coins = 0
     # update inventory to reflect purchase
     inventory[id] -= 1
+    num_vended += 1
+    response.body = {"quantity": num_vended}
     return response
     
 # run the Flask app on port 8080    
