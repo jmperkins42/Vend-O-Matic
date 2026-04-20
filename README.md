@@ -44,11 +44,13 @@ Tests are written using pytest and requests. You will need two terminals open:
 
 **Terminal 2 — run the tests:**
 
-   pytest tests.py -v
+   pytest http_tests.py -v
 
 The `-v` flag shows each test name and its pass/fail status individually.
 
-To add new tests, add a new function to `http_tests.py` prefixed with `test_`. Tests run in the order they appear in the file — order matters since the server is stateful.
+With the current tests, you might be required to restart the server fresh before running them, since the state of the server doesnt get automatically reset.
+
+To add new tests, add a new function to `http_tests.py` prefixed with `test_`. Tests run in the order they appear in the file. Order matters since the server is stateful.
 
 Alternatively, endpoints can be tested manually using [Postman](https://www.postman.com/). Import the collection and use the Collection Runner to execute all requests in order.
 
