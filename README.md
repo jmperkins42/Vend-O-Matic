@@ -12,25 +12,25 @@ A simple vending machine API built with Python and Flask.
 2. Navigate to the project folder
 3. Create and activate a virtual environment:
    
-   python -m venv venv
+   `python -m venv venv`
 
    Mac/Linux:
-   source venv/bin/activate
+   `source venv/bin/activate`
    
    Windows:
-   venv\Scripts\activate
+   `venv\Scripts\activate`
 
 4. Install dependencies:
    
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
 
 5. Run the server:
    
-   python server.py
+   `python server.py`
 
    Or with auto-reload during development:
    
-   flask --app server.py run --port 8080 --debug
+   `flask --app server.py run --port 8080 --debug`
 
 The server will start on http://localhost:8080
 
@@ -40,11 +40,11 @@ Tests are written using pytest and requests. You will need two terminals open:
 
 **Terminal 1 — start the server:**
 
-   python server.py
+   `python server.py`
 
 **Terminal 2 — run the tests:**
 
-   pytest http_tests.py -v
+   `pytest http_tests.py -v`
 
 The `-v` flag shows each test name and its pass/fail status individually.
 
